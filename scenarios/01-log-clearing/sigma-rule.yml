@@ -1,0 +1,23 @@
+title: Windows Security Audit Log Cleared
+id: f6e5e1a0-3c4b-4f8e-9d2a-7b1c6e8f0a3d
+status: experimental
+description: >
+  Detects clearing of the Windows Security event log via EID 1102.
+  Common post-compromise anti-forensics step to destroy authentication
+  and process execution history.
+references:
+    - https://attack.mitre.org/techniques/T1070/
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 1102
+    condition: selection
+falsepositives:
+    - Legitimate log rotation by a sysadmin (verify SubjectUserName
+      against authorized admin list and check for a change request)
+level: high
+tags:
+    - attack.t1070
+    - attack.defense_evasion
