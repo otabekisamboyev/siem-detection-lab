@@ -1,0 +1,9 @@
+<group name="custom_detections,brute_force,">
+  <rule id="100001" level="10" frequency="5" timeframe="60">
+    <if_matched_sid>60122</if_matched_sid>
+    <description>Custom: Brute Force - 5+ failed logons in 60 seconds</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+</group>
